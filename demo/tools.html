@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#ff0026"/>
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+    <meta name="googlebot" content="index, follow"/>
+    <meta name="author" content="Mahfuz BD Asia"/>
+    <meta name="keywords" content="free online tools, web tools, Mahfuz BD Asia tools, SEO tools, developer tools"/>
+
+    <!-- Primary Meta Tags (SEO) -->
+    <title>Tools | Mahfuz BD Asia - Free Web Tools & Utilities</title>
+    <meta name="description" content="A collection of free online tools and websites built by Mahfuz BD Asia. Click any tool to open it and use it instantly."/>
+    <link rel="canonical" href="https://mahfuzbdasia.com/tools.html"/>
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://mahfuzbdasia.com/tools.html"/>
+    <meta property="og:title" content="Tools | Mahfuz BD Asia"/>
+    <meta property="og:description" content="A collection of free online tools and websites built by Mahfuz BD Asia."/>
+    <meta property="og:image" content="https://mahfuzbdasiaportfolio.vercel.app/image/mahfuz%20bd%20asia.png"/>
+    <meta property="og:site_name" content="Mahfuz BD Asia | Tools"/>
+    <meta property="og:locale" content="en_US"/>
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Tools | Mahfuz BD Asia"/>
+    <meta name="twitter:description" content="A collection of free online tools and websites built by Mahfuz BD Asia."/>
+    <meta name="twitter:image" content="https://mahfuzbdasiaportfolio.vercel.app/image/mahfuz%20bd%20asia.png"/>
+
+    <!-- Preconnect and preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Central Stylesheet (same as homepage) -->
+    <link rel="stylesheet" href="style.css"/>
+
+    <style>
+        :root { --gutter: 24px; }
+        .card-inner { padding: var(--gutter, 24px) !important; }
+
+        /* ---- Tools page specific styles ---- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            scroll-margin-top: 110px;
+        }
+        .tool-card:target {
+            border-color: var(--color-primary-container);
+            box-shadow: 0 0 0 1px var(--color-primary-container), 0 8px 32px rgba(255, 0, 38, 0.35), 0 0 60px rgba(255, 0, 38, 0.15);
+        }
+
+        /* ---- Tools dropdown menu (in header) ---- */
+        .nav-links {
+            align-items: center;
+        }
+        .nav-item-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .nav-dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            font: inherit;
+            line-height: inherit;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-dropdown-toggle:hover,
+        .nav-item-dropdown:hover .nav-dropdown-toggle,
+        .nav-item-dropdown.open .nav-dropdown-toggle {
+            color: var(--color-secondary);
+        }
+        .nav-dropdown-toggle .material-symbols-outlined {
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 16px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            max-height: 360px;
+            overflow-y: auto;
+            background: #0d0d0d;
+            border: 1px solid var(--color-outline-variant, rgba(255,255,255,0.1));
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            padding: 8px;
+            display: none;
+            z-index: 50;
+        }
+        .nav-item-dropdown:hover .nav-dropdown-menu,
+        .nav-item-dropdown.open .nav-dropdown-menu {
+            display: block;
+        }
+        .nav-item-dropdown:hover .nav-dropdown-toggle .material-symbols-outlined,
+        .nav-item-dropdown.open .nav-dropdown-toggle .material-symbols-outlined {
+            transform: rotate(180deg);
+        }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255, 0, 38, 0.1);
+            color: var(--color-secondary);
+        }
+        .nav-dropdown-menu::-webkit-scrollbar { width: 6px; }
+        .nav-dropdown-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        @media (max-width: 768px) {
+            .nav-dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                max-height: none;
+                overflow: visible;
+                padding: 0 0 0 16px;
+                display: none;
+            }
+            .nav-item-dropdown.open .nav-dropdown-menu { display: block; }
+        }
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 0, 38, 0.1);
+            border: 1px solid rgba(255, 0, 38, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tool-icon .material-symbols-outlined {
+            color: var(--color-primary-container, #ff0026);
+            font-size: 24px;
+        }
+        .tool-card .btn {
+            margin-top: auto;
+            text-align: center;
+            justify-content: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        @media (max-width: 768px) {
+            #navContactBtn { display: none !important; }
+            .tools-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#ff0026;color:#fff;padding:8px 16px;text-decoration:none;z-index:100;border-radius:0 0 4px 0;"
+       onFocus="this.style.top='0'" onBlur="this.style.top='-40px'">Skip to Main Content</a>
+
+    <div class="bg-mesh"></div>
+
+    <!-- Navigation Header (same as homepage, with Tools marked current) -->
+    <header class="glass-header" role="banner">
+        <div class="container nav-container">
+            <a class="text-headline-lg" href="index.html" style="font-size: 24px; font-weight: 700; letter-spacing: 0.05em; text-decoration: none; color: inherit;" aria-label="Mahfuz BD Asia Home">
+                MAHFUZ<span class="text-primary" aria-hidden="true">.</span>
+            </a>
+            <nav id="nav-links" class="nav-links" aria-label="Main Navigation">
+                <a class="text-label-caps" href="index.html#hero">Home</a>
+                <a class="text-label-caps" href="index.html#services">Features</a>
+                <a class="text-label-caps" href="index.html#skills">Skills</a>
+                <a class="text-label-caps" href="index.html#case-studies">Projects</a>
+                <div class="nav-item-dropdown">
+                    <button class="text-label-caps nav-dropdown-toggle" aria-current="page" aria-expanded="false" aria-haspopup="true">
+                        Tools <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="tools.html#tool-1">Tool Name 1</a>
+                        <a href="tools.html#tool-2">Tool Name 2</a>
+                        <a href="tools.html#tool-3">Tool Name 3</a>
+                        <a href="tools.html#tool-4">Tool Name 4</a>
+                        <a href="tools.html#tool-5">Tool Name 5</a>
+                        <a href="tools.html#tool-6">Tool Name 6</a>
+                        <a href="tools.html#tool-7">Tool Name 7</a>
+                        <a href="tools.html#tool-8">Tool Name 8</a>
+                        <a href="tools.html#tool-9">Tool Name 9</a>
+                        <a href="tools.html#tool-10">Tool Name 10</a>
+                        <a href="tools.html#tool-11">Tool Name 11</a>
+                        <a href="tools.html#tool-12">Tool Name 12</a>
+                        <a href="tools.html#tool-13">Tool Name 13</a>
+                        <a href="tools.html#tool-14">Tool Name 14</a>
+                        <a href="tools.html#tool-15">Tool Name 15</a>
+                        <a href="tools.html#tool-16">Tool Name 16</a>
+                        <a href="tools.html#tool-17">Tool Name 17</a>
+                        <a href="tools.html#tool-18">Tool Name 18</a>
+                        <a href="tools.html#tool-19">Tool Name 19</a>
+                        <a href="tools.html#tool-20">Tool Name 20</a>
+                        <a href="tools.html" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:6px;padding-top:10px;color:var(--color-primary-container);font-weight:600;">View All Tools →</a>
+                    </div>
+                </div>
+                <a class="text-label-caps" href="index.html#resume">Resume</a>
+                <a class="text-label-caps" href="index.html#pricing">Pricing</a>
+                <a class="text-label-caps" href="index.html#contact">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <a href="index.html#contact" class="btn btn-outline" style="padding: 10px 20px; display: inline-block;" id="navContactBtn">Hire Me</a>
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="nav-links">
+                    <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Tools Hero -->
+        <section class="section" id="tools-hero" style="padding-top: 160px; padding-bottom: 40px; border-bottom: 1px solid var(--color-outline);" aria-label="Tools Introduction">
+            <div class="container text-center">
+                <span class="text-label-caps text-primary">Built by Me</span>
+                <h1 class="text-headline-lg" style="margin-top: 8px;">My Tools & Websites</h1>
+                <p class="text-muted" style="max-width: 640px; margin: 16px auto 0; font-size: 15px; line-height: 1.7;">
+                    A growing collection of tools and websites I've built. Click any card below to open and use it.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <section class="section" id="tools" style="border-bottom: 1px solid var(--color-outline);" aria-label="Tools List">
+            <div class="container">
+                <div class="tools-grid">
+
+                    <!-- ============ TOOL 1 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-1">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 1</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 1</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="https://mahfuzbdasia.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 1 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 2 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-2">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 2</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 2</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 2 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 3 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-3">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 3</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 3</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 3 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 4 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-4">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 4</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 4</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 4 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 5 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-5">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 5</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 5</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 5 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 6 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-6">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 6</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 6</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 6 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 7 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-7">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 7</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 7</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 7 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 8 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-8">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 8</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 8</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 8 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 9 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-9">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 9</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 9</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 9 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 10 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-10">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 10</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 10</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 10 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 11 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-11">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 11</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 11</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 11 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 12 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-12">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 12</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 12</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 12 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 13 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-13">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 13</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 13</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 13 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 14 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-14">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 14</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 14</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 14 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 15 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-15">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 15</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 15</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 15 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 16 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-16">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 16</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 16</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 16 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 17 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-17">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 17</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 17</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 17 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 18 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-18">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 18</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 18</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 18 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 19 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-19">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 19</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 19</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 19 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+
+                    <!-- ============ TOOL 20 — edit name, link, description, category below ============ -->
+                    <div class="tool-card card-inner p-6" id="tool-20">
+                        <div class="flex justify-between items-center" style="margin-bottom:14px;">
+                            <span class="chip">CATEGORY 20</span>
+                        </div>
+                        <div class="tool-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-secondary" style="font-size:18px;font-weight:700;margin:14px 0 8px;">Tool Name 20</h3>
+                        <p class="text-muted" style="font-size:13px;line-height:1.6;min-height:42px;">Short one or two line description of what this tool does goes here.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full tool-visit-btn" aria-label="Open Tool Name 20 website">
+                            Visit Tool <span class="material-symbols-outlined" style="font-size:16px;vertical-align:-3px;">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as homepage) -->
+    <footer class="footer" role="contentinfo">
+        <div class="container grid grid-cols-12 lg-grid-cols-12-fluid" style="gap: 48px; margin-bottom: 60px;">
+            <div class="span-3">
+                <div class="footer-logo">MAHFUZ<span class="text-primary" aria-hidden="true">.</span></div>
+                <p class="text-muted" style="margin-bottom: 24px;">Revolutionizing the digital landscape through data-driven search strategies and AI-integrated marketing.</p>
+                <div class="flex" style="gap: 12px;" role="list">
+                    <a class="card-inner flex items-center justify-center" style="width: 44px; height: 44px; text-decoration: none;" href="https://facebook.com" aria-label="Visit our Facebook page" role="listitem" rel="noopener noreferrer" target="_blank">
+                        <span class="material-symbols-outlined text-secondary" style="font-size: 20px;" aria-hidden="true">public</span>
+                    </a>
+                    <a class="card-inner flex items-center justify-center" style="width: 44px; height: 44px; text-decoration: none;" href="https://linkedin.com" aria-label="Visit our LinkedIn profile" role="listitem" rel="noopener noreferrer" target="_blank">
+                        <span class="material-symbols-outlined text-secondary" style="font-size: 20px;" aria-hidden="true">share</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="span-3">
+                <h4 class="text-secondary text-label-caps" style="margin-bottom: 24px;">Quick Links</h4>
+                <nav class="footer-links-group" aria-label="Footer Navigation">
+                    <a href="index.html#hero">About Me</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+            </div>
+
+            <div class="span-3">
+                <h4 class="text-secondary text-label-caps" style="margin-bottom: 24px;">Resources</h4>
+                <nav class="footer-links-group" aria-label="Resources Navigation">
+                    <a href="index.html#">Terms of Service</a>
+                    <a href="index.html#">Privacy Policy</a>
+                    <a href="index.html#case-studies">Case Studies</a>
+                    <a href="index.html#blog">SEO Blog</a>
+                </nav>
+            </div>
+
+            <div class="span-3">
+                <h4 class="text-secondary text-label-caps" style="margin-bottom: 24px;">Stay Updated</h4>
+                <p class="text-muted" style="font-size: 14px; margin-bottom: 16px;">Get the latest SEO insights delivered monthly.</p>
+                <form id="newsletterForm" class="footer-newsletter" style="display: flex; gap: 0;" aria-label="Newsletter Subscription">
+                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                    <input id="newsletter-email" type="email" placeholder="Email Address" required aria-required="true" style="border-top-right-radius: 0; border-bottom-right-radius: 0; padding: 10px 14px; font-size: 14px; min-width: 0; flex: 1; background: #111; color: #fff; border: 1px solid rgba(255,255,255,0.12);"/>
+                    <button type="submit" class="btn btn-primary" style="border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 0 16px;" aria-label="Subscribe">
+                        <span class="material-symbols-outlined" style="font-size: 20px;" aria-hidden="true">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 32px;">
+            <p class="text-muted" style="font-size: 14px;">
+                © 2024 Mahfuz BD Asia. | <span class="text-secondary">Best SEO Expert in Bangladesh.</span> | All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Screen Reader Only Utility Classes -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+
+    <!-- Mobile nav toggle (minimal, matches homepage behavior) -->
+    <script>
+        (function () {
+            var toggle = document.getElementById('mobileNavToggle');
+            var nav = document.getElementById('nav-links');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var isOpen = nav.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+            }
+
+            // Tools dropdown: tap-to-toggle on mobile, click-outside to close
+            var dropdown = document.querySelector('.nav-item-dropdown');
+            var dropdownToggle = dropdown ? dropdown.querySelector('.nav-dropdown-toggle') : null;
+            if (dropdown && dropdownToggle) {
+                dropdownToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var isOpen = dropdown.classList.toggle('open');
+                    dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                document.addEventListener('click', function (e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('open');
+                        dropdownToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        })();
+    </script>
+    <script src="/analytics.js" async></script>
+</body>
+</html>
