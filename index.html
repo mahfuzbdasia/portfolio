@@ -2018,6 +2018,10 @@
     <!-- Tools dropdown: tap-to-toggle on mobile, click-outside to close -->
     <script>
         (function () {
+            document.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+            });
+
             var dropdown = document.querySelector('.nav-item-dropdown');
             var dropdownToggle = dropdown ? dropdown.querySelector('.nav-dropdown-toggle') : null;
             if (dropdown && dropdownToggle) {
